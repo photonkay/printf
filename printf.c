@@ -23,6 +23,8 @@ int _printf(const char *format, ...)
 				char_count += handle_cs(&format, args);
 			else if (*format == 'd' || *format == 'i')
 				char_count += handle_id(&format, args);
+			else if (*format == 'b')
+				char_count += handle_binary(&format, args);
 			else
 			{
 				write(1, "%", 1);
