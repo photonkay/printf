@@ -6,7 +6,6 @@
  * @args: arguments
  * Return: chars printed
  */
-
 int handle_cs(const char **format, va_list args)
 {
 	int char_count = 0;
