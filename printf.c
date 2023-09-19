@@ -9,6 +9,8 @@ int _printf(const char *format, ...)
 {
 	va_list args;
 	int char_count = 0;
+	void *ptr;
+	int ptr_chars;
 
 	if (format == NULL)
 		return (-1);
@@ -27,6 +29,14 @@ int _printf(const char *format, ...)
 				char_count += handle_binary(&format, args);
 			else if (*format == 'u' || *format == 'o' || *format == 'x' || *format == 'X')
 				char_count += handle_unsigned(&format, args);
+			else if (*format == 'p')
+			{
+				ptr = va_arg(args, void *);
+				ptr_chars = handle_p(ptr);
+				if (ptr_chars < 0)
+					return -1;
+				char_count += ptr_chars;
+			}
 			else
 			{
 				write(1, "%", 1);
