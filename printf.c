@@ -9,7 +9,6 @@ int _printf(const char *format, ...)
 {
 	va_list args;
 	int char_count = 0;
-	char percent;
 
 	if (format == NULL)
 		return (-1);
@@ -26,10 +25,10 @@ int _printf(const char *format, ...)
 				char_count += handle_id(&format, args);
 			else
 			{
-				percent = '%';
-				write(1, &percent, 1);
+				write(1, "%", 1);
 				write(1, format, 1);
 				char_count += 2;
+				format++;
 			}
 		}
 		else

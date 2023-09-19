@@ -1,13 +1,16 @@
 #include "main.h"
 
-int main()
-{
-    int num = 45;
-    char c = 'a';
-    char* ch = "Hello";
+int main() {
+    int num = 42;
+    char ch = 'A';
+    const char *str = "Hello, World!";
 
-    _printf("This is a test: %s\n", ch);
-    _printf("%c\n", c);
-    _printf("%d\n", num);
+    _printf("Character: %c\n", ch);
+    _printf("Integer: %d\n", num);
+    _printf("String: %s\n", str);
+    _printf("Integer (alternate specifier): %i\n", num);
+    _printf("Percent sign: %%\n");
+    _printf("Unsupported specifier: %x\n", num);
+
     return 0;
 }
