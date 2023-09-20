@@ -11,6 +11,7 @@ int _printf(const char *format, ...)
 	int char_count = 0;
 	void *ptr;
 	int ptr_chars;
+	int number_flags;
 	const char* str;
 
 	if (format == NULL)
@@ -22,6 +23,7 @@ int _printf(const char *format, ...)
 		if (*format == '%')
 		{
 			format++;
+			number_flags = handle_flags(&format);
 			if (*format == 'c' || *format == 's' || *format == '%')
 				char_count += handle_cs(&format, args);
 			else if (*format == 'd' || *format == 'i')
@@ -56,6 +58,7 @@ int _printf(const char *format, ...)
 			char_count += write(1, format, 1);
 			format++;
 		}
+		char_count += number_flags;
 	}
 	va_end(args);
 	return (char_count);
