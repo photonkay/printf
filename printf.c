@@ -11,6 +11,7 @@ int _printf(const char *format, ...)
 	int char_count = 0;
 	void *ptr;
 	int ptr_chars;
+	const char* str;
 
 	if (format == NULL)
 		return (-1);
@@ -36,6 +37,11 @@ int _printf(const char *format, ...)
 				if (ptr_chars < 0)
 					return -1;
 				char_count += ptr_chars;
+			}
+			else if (*format == 'S')
+			{
+				str = va_arg(args, const char *);
+				char_count += handle_S(str);
 			}
 			else
 			{
