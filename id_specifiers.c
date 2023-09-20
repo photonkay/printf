@@ -6,6 +6,7 @@
  * args: arguments
  * Return: number of printed chars
  */
+
 int handle_id(const char **format, va_list args)
 {
 	int char_count = 0;
