@@ -12,7 +12,7 @@ int _printf(const char *format, ...)
 	void *ptr;
 	int ptr_chars;
 	int number_flags;
-	const char* str;
+	const char *str;
 
 	if (format == NULL)
 		return (-1);

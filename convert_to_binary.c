@@ -1,9 +1,9 @@
 #include "main.h"
 
 /**
- * binary - outputs binary
+ * handle_binary - outputs binary
  * @format: character string
- * list: list of arguments
+ * @list: list of arguments
  * Return: number of characters printed
  */
 int handle_binary(const char **format, va_list list)

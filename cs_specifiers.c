@@ -2,7 +2,7 @@
 
 /**
  * handle_cs - handles the c and s specifiers in printf
- * @format - format string
+ * @format: format string
  * @args: arguments
  * Return: chars printed
  */
@@ -20,6 +20,8 @@ int handle_cs(const char **format, va_list args)
 	else if (**format == 's')
 	{
 		str = va_arg(args, char *);
+		if (!str)
+			str = "(null)";
 		char_count += write(1, str, strlen(str));
 	}
 	else if (**format == '%')

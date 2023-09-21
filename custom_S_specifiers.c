@@ -2,11 +2,9 @@
 
 /**
  * handle_S - handles a custom specifier
- * @format: format string
- * @args: arguments
+ * @str: format string
  * Return: number of characters
  */
-
 int handle_S(const char *str)
 {
 	char hex[4];

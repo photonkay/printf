@@ -3,7 +3,7 @@
 /**
  * handle_p - handles the pointer in printf
  * @ptr: pointer to handle
- * Return number of characters
+ * Return: number of characters
  */
 int handle_p(void *ptr)
 {

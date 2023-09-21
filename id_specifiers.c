@@ -3,10 +3,9 @@
 /**
  * handle_id - handles the i and d specifiers in printf
  * @format: character string
- * args: arguments
+ * @args: arguments
  * Return: number of printed chars
  */
-
 int handle_id(const char **format, va_list args)
 {
 	int char_count = 0;
