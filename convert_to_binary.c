@@ -10,24 +10,27 @@ int handle_binary(const char **format, va_list list)
 {
 	unsigned int num;
 	int count = 0;
-	int bit, i, sigBit, numBits = 0;
+	int i, non_zero = 0;
+	char buffer[33];
+	int bit;
 	char bitChar;
 
 	if (**format == 'b')
 	{
 		num = va_arg(list, unsigned int);
-		numBits = sizeof(num) * 8;
-		for (i = numBits - 1; i >= 0; i--)
+		for (bit = 31; bit >= 0; bit--)
 		{
-			bit = (num >> i) & 1;
-			if (bit || sigBit)
+			bitChar = (num & (1u << bit)) ? '1' : '0';
+			if (bitChar == '1' || non_zero)
 			{
-				bitChar = bit + '0';
-				write(1, &bitChar, 1);
-				count++;
-				sigBit = 1;
+				buffer[i++] = bitChar;
+				non_zero = 1;
 			}
 		}
+		if (i == 0)
+			buffer[i++] = '0';
+		buffer[i] = '0';
+		count += write(1, buffer, i);
 	}
 	else
 	{
