@@ -13,17 +13,17 @@ int handle_S(const char *str)
 
 	while (*str)
 	{
-		if (*str >= 32 && *str < 127)
+		if ((*str > 0 && *str < 32) || *str >= 127)
+		{
+			snprintf(hex, sizeof(hex), "\\%02X", (unsigned char)*str);
+			write(1, hex, 4);
+			count += 4;
+		}
+		else
 		{
 			c = *str;
 			write(1, &c, 1);
 			count++;
-		}
-		else
-		{
-			snprintf(hex, sizeof(hex), "\\x%02X", (unsigned char)*str);
-			write(1, hex, 4);
-			count += 4;
 		}
 		str++;
 	}

@@ -9,10 +9,11 @@
  */
 int main(void)
 {
-	int len, len2;
+/*	int len, len2;*/
 
-	len = _printf("%o", 1024);
-	len2 = printf("%o", 1024);
+	_printf("%S", "No special character.");
+/*
+	len2 = printf("No special character.");
 	fflush(stdout);
 	if (len != len2)
 	{
@@ -20,5 +21,5 @@ int main(void)
 		fflush(stdout);
 		return (1);
 	}
-	return (0);
+*/	return (0);
 }
