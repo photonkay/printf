@@ -29,7 +29,7 @@ int handle_binary(const char **format, va_list list)
 		}
 		if (i == 0)
 			buffer[i++] = '0';
-		buffer[i] = '0';
+		buffer[i] = '\0';
 		count += write(1, buffer, i);
 	}
 	else

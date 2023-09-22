@@ -21,7 +21,7 @@ int handle_S(const char *str)
 		}
 		else
 		{
-			snprintf(hex, sizeof(hex), "\\x%)@X", (unsigned char)*str);
+			snprintf(hex, sizeof(hex), "\\x%02X", (unsigned char)*str);
 			write(1, hex, 4);
 			count += 4;
 		}

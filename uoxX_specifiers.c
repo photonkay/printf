@@ -6,7 +6,6 @@
  * @list: arguments
  * Return: number of characters printed
  */
-
 int handle_unsigned(const char **format, va_list list)
 {
 	unsigned int num;
@@ -23,7 +22,7 @@ int handle_unsigned(const char **format, va_list list)
 	else if (**format == 'o' || **format == 'x' || **format == 'X')
 	{
 		num = va_arg(list, unsigned int);
-		digits = sprintf(buffer, "%lX", (unsigned long) num);
+		digits = sprintf(buffer, "%lX", (unsigned long)num);
 		buffer[1] = **format;
 		count += write(1, buffer, digits);
 	}
